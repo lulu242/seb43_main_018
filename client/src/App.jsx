@@ -14,7 +14,6 @@ import CommunityDetail from './pages/CommunityDetail';
 import CommunityEdit from './pages/CommunityEdit';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Prepare from './pages/Prepare';
 import NotFound from './pages/NotFound';
 import MainPage from './pages/MianPage';
 import PloggingCommunity from './pages/Plogging';

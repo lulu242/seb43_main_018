@@ -27,7 +27,6 @@ function EditUserInfo() {
 				);
 				const userData = response.data;
 				setUsername(userData.username);
-				setPassword(userData.password);
 			} catch (error) {
 				console.error(error);
 			}

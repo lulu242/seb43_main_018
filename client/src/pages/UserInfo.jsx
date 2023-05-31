@@ -28,11 +28,11 @@ function UserInfo() {
 
 				// 사용자가 작성한 게시글 가져오기
 				const postResponse = await axios.get(
-					`${process.env.REACT_APP_API_URL}/api/boards?memberId=${memberId}`,
+					`${process.env.REACT_APP_API_URL}/api/boards?memberId=${memberId}&sort=-createdAt&limit=5`,
 				);
-				const sortedPosts = postResponse.data.sort((a, b) => {
-					return new Date(b.createdAt) - new Date(a.createdAt);
-				});
+				const sortedPosts = postResponse.data
+					.filter((post) => post.memberId === memberId) // Filter posts by memberId
+					.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 				const latestPosts = sortedPosts.slice(0, 5);
 				setPostList(latestPosts);
 
@@ -40,9 +40,9 @@ function UserInfo() {
 				const commentResponse = await axios.get(
 					`${process.env.REACT_APP_API_URL}/api/comments?memberId=${memberId}&sort=-createdAt&limit=5`,
 				);
-				const sortedComments = commentResponse.data.sort((a, b) => {
-					return new Date(b.createdAt) - new Date(a.createdAt);
-				});
+				const sortedComments = commentResponse.data
+					.filter((comment) => comment.memberId === memberId) // Filter comments by memberId
+					.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 				const latestComments = sortedComments.slice(0, 5);
 				setCommentList(latestComments);
 			} catch (error) {

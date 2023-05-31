@@ -16,7 +16,7 @@ import {
 	ERROR_VALIDATION_PASSWORD,
 	ERROR_VALIDATION_REQUIRED_PASSWORD,
 } from '../Constant';
-import { URL_MAP, URL_SIGNUP } from '../routesURL';
+import { URL_INTRODUCTION, URL_SIGNUP } from '../routesURL';
 
 function Login() {
 	const dispatch = useDispatch();
@@ -57,7 +57,7 @@ function Login() {
 					}),
 				);
 				// setIsLogin(true);
-				navigate(URL_MAP);
+				navigate(URL_INTRODUCTION);
 			})
 			.catch((err) => {
 				console.log(err);
