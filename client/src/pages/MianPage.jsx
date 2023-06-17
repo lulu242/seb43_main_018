@@ -211,7 +211,7 @@ const MainContainer = styled.section`
 `;
 const Section = styled.section`
 	width: 100%;
-	height: 90vh;
+	height: 100%;
 	background: ${(props) => props.color};
 	background: ${(props) => `linear-gradient(${props.linear})`};
 	padding: 150px 100px;
@@ -340,5 +340,66 @@ const Section = styled.section`
 		border-radius: 50%;
 		width: 150px;
 		height: 150px;
+	}
+
+	@media (max-width: 1300px) {
+		height: 700px;
+		&:first-child {
+			padding: 50px 70px;
+		}
+		.section1 {
+			display: block;
+			position: relative;
+		}
+		.section1 img {
+			width: 400px;
+			position: absolute;
+			right: 0;
+			top: 250px;
+		}
+		h1 {
+			margin-top: 30px;
+		}
+		.pattern1 {
+			position: absolute;
+			left: -160px;
+			top: 30px;
+			width: 300px;
+		}
+		.pattern2 {
+			position: absolute;
+			left: -240px;
+			top: 100px;
+			width: 300;
+		}
+	}
+
+	@media (max-width: 700px) {
+		height: 100%;
+		&:first-child {
+			padding: 10% 5%;
+		}
+		.section1 img {
+			display: none;
+		}
+		h1 {
+			font-size: 35px;
+			margin-bottom: 15px;
+			margin-top: 20px;
+		}
+		h2 {
+			font-size: 17px;
+			padding-bottom: 15px;
+		}
+		p {
+			font-size: 14px;
+			margin-bottom: 100px;
+		}
+		span {
+			font-size: 16px;
+		}
+		.linkButton {
+			margin-left: calc(50% - 84.15px);
+		}
 	}
 `;
