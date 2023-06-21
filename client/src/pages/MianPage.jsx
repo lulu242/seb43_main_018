@@ -200,6 +200,7 @@ const MainContainer = styled.section`
 	top: 80px;
 	.section2Container {
 		padding: 50px 100px;
+		height: 100%;
 	}
 	.section3Container {
 		padding: 60px 100px;
@@ -207,6 +208,12 @@ const MainContainer = styled.section`
 
 	@media (max-width: 768px) {
 		top: 70px;
+		.section2Container {
+			padding: 10% 10%;
+		}
+		.section3Container {
+			padding: 10% 10%;
+		}
 	}
 `;
 const Section = styled.section`
@@ -239,8 +246,17 @@ const Section = styled.section`
 		margin-left: auto;
 		margin-right: auto;
 		padding-bottom: 20px;
-		gap: 100px;
+		gap: 10%;
 		text-align: center;
+		width: 100%;
+		justify-content: space-between;
+	}
+	.section2 img {
+		width: 100%;
+	}
+	.section2 > div {
+		flex: 1;
+		position: relative;
 	}
 	.section3 {
 		max-width: 1400px;
@@ -315,8 +331,7 @@ const Section = styled.section`
 		padding-top: 15px;
 	}
 	.topic {
-		height: 140px;
-		margin-bottom: 0px;
+		margin-bottom: 40px;
 	}
 	span {
 		font-size: 18px;
@@ -335,6 +350,12 @@ const Section = styled.section`
 	}
 	.ViewButton {
 		color: #b1b1b1;
+		margin-top: auto;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		font-size: 18px;
 	}
 	.gitIDimg {
 		border-radius: 50%;
@@ -372,12 +393,15 @@ const Section = styled.section`
 			top: 100px;
 			width: 300;
 		}
+		.section2 {
+			gap: 5%;
+		}
 	}
 
 	@media (max-width: 700px) {
 		height: 100%;
 		&:first-child {
-			padding: 10% 5%;
+			padding: 10% 10%;
 		}
 		.section1 img {
 			display: none;
@@ -400,6 +424,16 @@ const Section = styled.section`
 		}
 		.linkButton {
 			margin-left: calc(50% - 84.15px);
+		}
+		.section2 {
+			flex-direction: column;
+		}
+		.section2 img {
+			width: 60%;
+			margin-top: 70px;
+		}
+		.topic {
+			margin-bottom: 30px;
 		}
 	}
 `;
