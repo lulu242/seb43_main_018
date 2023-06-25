@@ -270,7 +270,7 @@ const Section = styled.section`
 	.section3-1 {
 		display: flex;
 		gap: 50px;
-		margin-bottom: 70px;
+		padding-bottom: 30px;
 	}
 	.gitID {
 		display: flex;
@@ -359,13 +359,13 @@ const Section = styled.section`
 	}
 	.gitIDimg {
 		border-radius: 50%;
-		width: 150px;
-		height: 150px;
+		width: 100%;
+		max-width: 150px;
 	}
 
 	@media (max-width: 1300px) {
-		height: 700px;
 		&:first-child {
+			height: 700px;
 			padding: 50px 70px;
 		}
 		.section1 {
@@ -399,8 +399,8 @@ const Section = styled.section`
 	}
 
 	@media (max-width: 700px) {
-		height: 100%;
 		&:first-child {
+			height: 100%;
 			padding: 10% 10%;
 		}
 		.section1 img {
