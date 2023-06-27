@@ -12,7 +12,7 @@ import { store } from '../store/UserSlice';
 
 function Map() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 	const [trashCans, setTrashCans] = useState([]);
 	const [, setTrashMarkers] = useState([]);
 	const [, setData] = useState([]);
@@ -103,6 +103,7 @@ function Map() {
 							});
 							trashMarker.setMap(map);
 							setTrashMarkers((prevState) => [...prevState, trashMarker]);
+							setIsLoading(false);
 						});
 					});
 				},
@@ -144,13 +145,11 @@ function Map() {
 					handleCancel={handleModalConfirm}
 				/>
 			)}
-			{/* {trashCans.length > 0 && (
+			{isLoading && (
 				<LoadingMessageContainer>
-					<LoadingMessage>
-						주변 쓰레기통 찾는 중{isLoading ? '...' : '..'}
-					</LoadingMessage>
+					<LoadingMessage>주변 쓰레기통 찾는 중</LoadingMessage>
 				</LoadingMessageContainer>
-			)} */}
+			)}
 		</>
 	);
 }
@@ -170,25 +169,43 @@ const MapStyle = styled.div`
 	}
 `;
 // 로딩 메시지
-// const LoadingMessage = styled.div`
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	height: 200px;
-// 	font-size: 18px;
-// 	font-weight: bold;
-// `;
-// const LoadingMessageContainer = styled.div`
-// 	position: fixed;
-// 	top: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	height: 100%;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	z-index: 9999;
-// 	background-color: rgba(255, 255, 255, 0.9);
-// `;
+const LoadingMessage = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	font-size: 18px;
+	font-weight: bold;
+`;
+const LoadingMessageContainer = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+	background-color: rgba(255, 255, 255, 0.9);
+	&::after {
+		content: ' ';
+		width: 30px;
+		height: 30px;
+		margin: 10px;
+		border: 4px solid var(--main-color);
+		border-radius: 50%;
+		border-top-color: transparent;
+		animation: loading 1s infinite linear;
+	}
+	@keyframes loading {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+`;
 
 export default Map;
